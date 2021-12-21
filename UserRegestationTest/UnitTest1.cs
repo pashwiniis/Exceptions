@@ -39,6 +39,12 @@ namespace UserRegistrationTest
             var result = registrationPattern.ValidateEmail("abc.xyz@bl.co.in");
             Assert.AreEqual("validation successfull", result);
         }
+        [TestMethod]
+        public void TestMobileNumber()
+        {
+            var result = registrationPattern.ValidateMobileNumber("91 9876543210");
+            Assert.AreEqual("validation successfull", result);
+        }
 
     }
 }
