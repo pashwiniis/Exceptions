@@ -12,6 +12,7 @@ namespace UserRegestartionRegex
         string msg = "";
         public string regex_firstName = "^[A-Z]{1}[a-z]{2,}$";
         public string regex_lastName = "^[A-Z]{1}[a-z]{2,}$";
+        public string regex_email = "^[a-z0-9]+(.[a-z0-9]+)?@[a-z]+[.][a-z]{2,3}(.[a-z]{2})?$";
         public string ValidateFirstName(string firstName)
         {
             try
@@ -51,6 +52,29 @@ namespace UserRegestartionRegex
                 else
                 {
                     throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.INVALID_FIRSTNAME, "LastName Should Starts with caps and and have minimum three characters"); ;
+                }
+            }
+            catch (RegistrationCustomExceptions ex)
+            {
+                Console.WriteLine("Exception : "+ex.Message);
+            }
+            return msg;
+        }
+        public string ValidateEmail(string email)
+        {
+            try
+            {
+                if (email.Equals(""))
+                {
+                    throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.NOT_NULL, "Email Should not be null");
+                }
+                if (Regex.IsMatch(email, regex_email).Equals(true))
+                {
+                    msg = "validation successfull";
+                }
+                else
+                {
+                    throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.INVALID_FIRSTNAME, "Email is Invalid"); ;
                 }
             }
             catch (RegistrationCustomExceptions ex)
