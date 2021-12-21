@@ -13,6 +13,7 @@ namespace UserRegestartionRegex
         public string regex_firstName = "^[A-Z]{1}[a-z]{2,}$";
         public string regex_lastName = "^[A-Z]{1}[a-z]{2,}$";
         public string regex_email = "^[a-z0-9]+(.[a-z0-9]+)?@[a-z]+[.][a-z]{2,3}(.[a-z]{2})?$";
+        public string regex_mobileNumber = "^[1-9][0-9]{1,2}[ ][0-9]{10}$";
         public string ValidateFirstName(string firstName)
         {
             try
@@ -75,6 +76,29 @@ namespace UserRegestartionRegex
                 else
                 {
                     throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.INVALID_FIRSTNAME, "Email is Invalid"); ;
+                }
+            }
+            catch (RegistrationCustomExceptions ex)
+            {
+                Console.WriteLine("Exception : "+ex.Message);
+            }
+            return msg;
+        }
+        public string ValidateMobileNumber(string mobile)
+        {
+            try
+            {
+                if (mobile.Equals(""))
+                {
+                    throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.NOT_NULL, "Mobile number Should not be null");
+                }
+                if (Regex.IsMatch(mobile, regex_mobileNumber).Equals(true))
+                {
+                    msg = "validation successfull";
+                }
+                else
+                {
+                    throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.INVALID_FIRSTNAME, "Mobile number should start with country code and have space between code and 10 digit mobile number"); ;
                 }
             }
             catch (RegistrationCustomExceptions ex)
