@@ -48,7 +48,7 @@ namespace UserRegistrationTest
         [TestMethod]
         public void TestPassword()
         {
-            var result = registrationPattern.ValidatePassword("Ashwini67");
+            var result = registrationPattern.ValidatePassword("A@shwini67");
             Assert.AreEqual("validation successfull", result);
         }
 

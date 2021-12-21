@@ -14,7 +14,7 @@ namespace UserRegestartionRegex
         public string regex_lastName = "^[A-Z]{1}[a-z]{2,}$";
         public string regex_email = "^[a-z0-9]+(.[a-z0-9]+)?@[a-z]+[.][a-z]{2,3}(.[a-z]{2})?$";
         public string regex_mobileNumber = "^[1-9][0-9]{1,2}[ ][0-9]{10}$";
-        public string regex_password = "^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{8,}$";
+        public string regex_password = "^(?=.*[A-Z])(?=.*[0-9])(?=.*?[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$";
         public string ValidateFirstName(string firstName)
         {
             try
@@ -122,7 +122,7 @@ namespace UserRegestartionRegex
                 }
                 else
                 {
-                    throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.INVALID_FIRSTNAME, "Rule1 : Minimum 8 characters\nRule2 : Sould have atleast 1 capital letter\nRule3 : Should have atleast 1 numeric number ");
+                    throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.INVALID_FIRSTNAME, "Rule1 : Minimum 8 characters\nRule2 : Sould have atleast 1 capital letter\nRule3 : Should have atleast 1 numeric number\nRule4 : Should have exact 1 special character ");
                 }
             }
             catch (RegistrationCustomExceptions ex)
