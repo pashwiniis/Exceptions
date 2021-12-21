@@ -12,7 +12,7 @@ namespace UserRegistrationTest
         [TestMethod]
         public void TestFirstName()
         {
-            var result = registrationPattern.ValidateFirstName("Arati");
+            var result = registrationPattern.ValidateFirstName("Ashwini");
             Assert.AreEqual("validation successfull", result);
         }
         [TestMethod]
@@ -30,7 +30,13 @@ namespace UserRegistrationTest
         [TestMethod]
         public void TestLastName()
         {
-            var result = registrationPattern.ValidateLastName("Naik");
+            var result = registrationPattern.ValidateLastName("Patil");
+            Assert.AreEqual("validation successfull", result);
+        }
+        [TestMethod]
+        public void TestEmail()
+        {
+            var result = registrationPattern.ValidateEmail("abc.xyz@bl.co.in");
             Assert.AreEqual("validation successfull", result);
         }
 
