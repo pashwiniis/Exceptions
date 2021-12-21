@@ -42,7 +42,13 @@ namespace UserRegistrationTest
         [TestMethod]
         public void TestMobileNumber()
         {
-            var result = registrationPattern.ValidateMobileNumber("91 9876543210");
+            var result = registrationPattern.ValidateMobileNumber("91 9850304684");
+            Assert.AreEqual("validation successfull", result);
+        }
+        [TestMethod]
+        public void TestPassword()
+        {
+            var result = registrationPattern.ValidatePassword("ashwini67");
             Assert.AreEqual("validation successfull", result);
         }
 

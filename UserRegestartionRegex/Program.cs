@@ -25,6 +25,10 @@ namespace UserRegestrationRegex
             Console.WriteLine("Enter Mobile Number");
             string mobile = Console.ReadLine();
             Console.WriteLine(registrationPattern.ValidateMobileNumber(mobile));
+            Console.WriteLine("Create Password");
+            string password = Console.ReadLine();
+            Console.WriteLine(registrationPattern.ValidatePassword(password));
+            Console.ReadKey();
         }
     }
 }
