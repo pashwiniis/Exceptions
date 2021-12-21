@@ -11,6 +11,7 @@ namespace UserRegestartionRegex
     {
         string msg = "";
         public string regex_firstName = "^[A-Z]{1}[a-z]{2,}$";
+        public string regex_lastName = "^[A-Z]{1}[a-z]{2,}$";
         public string ValidateFirstName(string firstName)
         {
             try
@@ -33,6 +34,29 @@ namespace UserRegestartionRegex
                 Console.WriteLine("Exception : "+ex.Message);
             }
 
+            return msg;
+        }
+        public string ValidateLastName(string lastName)
+        {
+            try
+            {
+                if (lastName.Equals(""))
+                {
+                    throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.NOT_NULL, "LastName Should not be null");
+                }
+                if (Regex.IsMatch(lastName, regex_lastName).Equals(true))
+                {
+                    msg = "validation successfull";
+                }
+                else
+                {
+                    throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.INVALID_FIRSTNAME, "LastName Should Starts with caps and and have minimum three characters"); ;
+                }
+            }
+            catch (RegistrationCustomExceptions ex)
+            {
+                Console.WriteLine("Exception : "+ex.Message);
+            }
             return msg;
         }
     }
