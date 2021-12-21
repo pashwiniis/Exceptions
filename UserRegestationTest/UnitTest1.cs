@@ -27,5 +27,12 @@ namespace UserRegistrationTest
                 Assert.AreEqual("FirstName Should not be null", ex.Message);
             }
         }
+        [TestMethod]
+        public void TestLastName()
+        {
+            var result = registrationPattern.ValidateLastName("Naik");
+            Assert.AreEqual("validation successfull", result);
+        }
+
     }
 }
